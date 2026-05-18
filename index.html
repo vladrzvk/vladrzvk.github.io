@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>CV - Vladislav Razyvika</title>
+<style>
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: "Times New Roman", "Liberation Serif", serif;
+    background: #fdf5ea;
+    color: #1a1a1a;
+    font-size: 10pt;
+    line-height: 1.35;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 0;
+    background: #fdf5ea;
+    position: relative;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    position: relative;
+    height: 180px;
+    padding: 0 50px;
+  }
+
+  /* Voûte bleu marine */
+  .arch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    height: 200px;
+    background: #1a2238;
+    border-bottom-left-radius: 160px;
+    border-bottom-right-radius: 160px;
+    z-index: 1;
+  }
+
+  /* Photo ronde */
+  .photo {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #d4d4d4;
+    border: 4px solid #fff;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 9pt;
+    font-style: italic;
+  }
+
+  .header-left {
+    position: absolute;
+    top: 35px;
+    left: 50px;
+    z-index: 3;
+  }
+
+  .name {
+    font-size: 32pt;
+    font-weight: bold;
+    line-height: 1.05;
+    color: #1a1a1a;
+  }
+
+  .name .last {
+    display: block;
+  }
+
+  .title {
+    font-style: italic;
+    font-size: 11pt;
+    margin-top: 6px;
+    border-top: 1px solid #888;
+    padding-top: 4px;
+    width: 180px;
+    text-align: center;
+  }
+
+  .header-right {
+    position: absolute;
+    top: 35px;
+    right: 50px;
+    z-index: 3;
+    text-align: right;
+    font-size: 10pt;
+    line-height: 1.6;
+  }
+
+  .header-right a {
+    color: #1a1a1a;
+    text-decoration: underline;
+  }
+
+  /* ===== SECTIONS ===== */
+  .content {
+    padding: 0 50px;
+  }
+
+  .section {
+    border-top: 0.5px solid #999;
+    padding: 14px 0 10px 0;
+  }
+
+  .section-title {
+    font-size: 9pt;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    font-family: "Times New Roman", serif;
+  }
+
+  /* Layout deux colonnes : date | contenu */
+  .row {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  .row:last-child {
+    margin-bottom: 0;
+  }
+
+  .col-date {
+    width: 145px;
+    flex-shrink: 0;
+    font-size: 9.5pt;
+    padding-top: 1px;
+  }
+
+  .col-content {
+    flex: 1;
+    font-size: 9.5pt;
+  }
+
+  .col-content .role {
+    font-weight: bold;
+    margin-bottom: 3px;
+  }
+
+  .col-content ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .col-content ul li {
+    padding-left: 10px;
+    position: relative;
+    margin-bottom: 1px;
+    line-height: 1.35;
+  }
+
+  .col-content ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+  }
+
+  /* Profil : pleine largeur */
+  .profile-text {
+    font-size: 9.5pt;
+  }
+
+  /* Compétences : layout label | liste */
+  .skill-row {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  .skill-label {
+    width: 145px;
+    flex-shrink: 0;
+    font-size: 9.5pt;
+  }
+
+  .skill-list {
+    flex: 1;
+    font-size: 9.5pt;
+  }
+
+  /* Langues */
+  .lang-row {
+    display: flex;
+    margin-bottom: 4px;
+    font-size: 9.5pt;
+  }
+
+  .lang-name {
+    width: 145px;
+    flex-shrink: 0;
+  }
+
+  .lang-level {
+    width: 200px;
+    flex-shrink: 0;
+  }
+
+  .lang-name-2 {
+    width: 145px;
+    flex-shrink: 0;
+  }
+
+  .lang-level-2 {
+    flex: 1;
+    text-align: right;
+  }
+
+  /* Certifications */
+  .cert-row {
+    display: flex;
+    margin-bottom: 3px;
+    font-size: 9.5pt;
+  }
+
+  .cert-date {
+    width: 145px;
+    flex-shrink: 0;
+  }
+
+  .cert-name {
+    flex: 1;
+    font-weight: bold;
+  }
+
+  /* Loisirs */
+  .hobbies {
+    font-size: 9.5pt;
+    line-height: 1.5;
+  }
+
+  .section-last {
+    border-bottom: 0.5px solid #999;
+    margin-bottom: 0;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="arch"></div>
+    <!-- <div class="photo">Photo</div> -->
+
+    <div class="header-left">
+      <div class="name">
+        Vladislav
+        <span class="last">Razyvika</span>
+      </div>
+      <div class="title">Architecte Logiciel</div>
+    </div>
+
+    <div class="header-right">
+      06 66 72 42 40<br>
+      <a href="mailto:vladislav.razyvika@gmail.com">vladislav.razyvika@gmail.com</a><br>
+      <a href="https://github.com/vladrzvk">https://github.com/vladrzvk</a> &nbsp; <a href="https://github.com/vladrzvk">GitHub</a><br>
+      <a href="#">Linkedin</a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- PROFIL -->
+    <div class="section">
+      <div class="section-title">Profil</div>
+      <div class="profile-text">
+        En recherche d'emploi, de missions, de challenges professionnels à plein ou à temps partiel. Disponible dès aujourd'hui.
+      </div>
+    </div>
+
+    <!-- FORMATION -->
+    <div class="section">
+      <div class="section-title">Formation</div>
+
+      <div class="row">
+        <div class="col-date">2022 – 2025</div>
+        <div class="col-content"><strong>MSC PRO Architecte Logiciel, Projet Web Et Mobile, Epitech Rennes</strong></div>
+      </div>
+      <div class="row">
+        <div class="col-date">sept. 2021 – août 2022</div>
+        <div class="col-content"><strong>Pré MSC PRO, Chef De Projet Web Et Mobile, Epitech Rennes</strong></div>
+      </div>
+      <div class="row">
+        <div class="col-date">2016 – 2020</div>
+        <div class="col-content"><strong>Licence Sciences, Technologies, Santé, Mention Mathématiques, Université Paris-Saclay</strong></div>
+      </div>
+    </div>
+
+    <!-- EXPÉRIENCE -->
+    <div class="section">
+      <div class="section-title">Expérience Professionnelle</div>
+
+      <div class="row">
+        <div class="col-date">févr. 2026 – avr. 2026</div>
+        <div class="col-content">
+          <div class="role">Lead Développeur — Outil D'automatisation Interne (Freelance), WebMatrix — Agence Digitale · Paris</div>
+          <ul>
+            <li>Conception et développement d'un outil interne d'automatisation, actuellement en phase de développement et de recette.</li>
+            <li>Pilotage technique de l'équipe en tant que référent principal.</li>
+            <li>Compétences : Gestion de projet, architecture logicielle, développement back-end.</li>
+            <li>Stack : Go.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-date">févr. 2026 – mars 2026</div>
+        <div class="col-content">
+          <div class="role">Développeur Web Prestataire (Freelance), WebMatrix — Agence Digitale · Paris</div>
+          <ul>
+            <li>Intégration et refonte de sites vitrines sous WordPress.</li>
+            <li>Création de pages d'accueil professionnelles et intégration de sections complexes en responsive design.</li>
+            <li>Compétences : Gestion projet, conception et développement.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-date">2024 – sept. 2024</div>
+        <div class="col-content">
+          <div class="role">Développeur Java, Entreprise Flows Repository · Rennes</div>
+          <ul>
+            <li>Conception et développement de l'UI d'un microservice en JSF avec Primefaces d'une solution de suivi et gouvernance de flux de données.</li>
+            <li>Compétences : Gestion projet, conception et développement.</li>
+            <li>Stack : Java Quarkus, JSF avec Primefaces, Confluence.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-date">2022 – 2024</div>
+        <div class="col-content">
+          <div class="role">Développeur Mobile, NeoVoice · Cesson-Sévigné</div>
+          <ul>
+            <li>Conception, développement et évolution d'un ERP web et d'une application mobile en Flutter intégrant.</li>
+            <li>Compétences : Gestion projet Agile, développement mobile cross-plateforme.</li>
+            <li>Stack : Flutter, Git, Jira, CodeMagic CI/CD.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-date">2021 – 2022</div>
+        <div class="col-content">
+          <div class="role">Chef De Projet Web Et Mobile &amp; Développeur Full-Stack, UVASC LAB · Pont-l'Abbé</div>
+          <ul>
+            <li>Organiser et appliquer un plan de conception et développement de nouvelles fonctionnalités d'une application mobile et web.</li>
+            <li>Compétences : Gestion projet, évolution d'applications.</li>
+            <li>Stack : ReactJS, Django, XCode, Swift, Bitbucket, Jira.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPÉTENCES -->
+    <div class="section">
+      <div class="section-title">Compétences</div>
+
+      <div class="skill-row">
+        <div class="skill-label">Développement</div>
+        <div class="skill-list">Conception D'applications Web Et Mobiles • Développement D'applications Avancées • Intégration Et Création D'API • Personnalisation Des Interfaces Utilisateurs • Tests Et Validation • Java • Flutter • ReactJS • Django • Swift • Laravel • Node.js • JSF Avec Primefaces • JUnit • Postman • Rust</div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-label">Gestion De Projet</div>
+        <div class="skill-list">Méthodologies Agile Et Scrum • Coordination D'équipes • Gestion Des Ressources • Suivi Des Échéances • Conformité Réglementaire • Gestion Des Risques • JIRA • Trello • Confluence • Git</div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-label">DevOps</div>
+        <div class="skill-list">Mise En Œuvre De Pipelines CI/CD • Conteneurisation Avec Docker • Automatisation Des Déploiements • Spécification D'architecture Logicielle • GitLab CI/CD • Docker • Docker-compose • Ansible • Terraform</div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-label">Cybersécurité</div>
+        <div class="skill-list">Analyse Des Risques • Conformité Réglementaire • Mise En Place De Mesures De Sécurité</div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="section">
+      <div class="section-title">Certifications</div>
+
+      <div class="cert-row">
+        <div class="cert-date">présent</div>
+        <div class="cert-name">Learn Microsoft : Principes De Base Microsoft Azure</div>
+      </div>
+      <div class="cert-row">
+        <div class="cert-date">présent</div>
+        <div class="cert-name">Learn Microsoft : Principes De Base De Microsoft En Matière De Sécurité, De Conformité Et D'identité</div>
+      </div>
+      <div class="cert-row">
+        <div class="cert-date">présent</div>
+        <div class="cert-name">MOOC : Sécurité Des Réseaux Informatiques Proposé Par IMT</div>
+      </div>
+      <div class="cert-row">
+        <div class="cert-date">présent</div>
+        <div class="cert-name">MOOC : Fondamentaux Pour Le Big Data Proposé Par IMT</div>
+      </div>
+      <div class="cert-row">
+        <div class="cert-date">présent</div>
+        <div class="cert-name">MOOC : Introduction À La Statistique Avec R Proposé Par Paris-Saclay</div>
+      </div>
+      <div class="cert-row">
+        <div class="cert-date">présent</div>
+        <div class="cert-name">Coursera : Machine Learning Proposé Par Standford University</div>
+      </div>
+    </div>
+
+    <!-- LANGUES -->
+    <div class="section">
+      <div class="section-title">Langues</div>
+
+      <div class="lang-row">
+        <div class="lang-name"><strong>Russe</strong></div>
+        <div class="lang-level"><em>Langue maternelle</em></div>
+        <div class="lang-name-2"><strong>Anglais</strong></div>
+        <div class="lang-level-2"><em>Courant</em></div>
+      </div>
+      <div class="lang-row">
+        <div class="lang-name"><strong>Français</strong></div>
+        <div class="lang-level"><em>Langue maternelle</em></div>
+        <div class="lang-name-2"><strong>Chinois</strong></div>
+        <div class="lang-level-2"><em>A1</em></div>
+      </div>
+    </div>
+
+    <!-- LOISIRS -->
+    <div class="section section-last">
+      <div class="section-title">Loisirs</div>
+      <div class="hobbies">
+        Sciences Et Technologie (Recherche Et Croisement De Source...), Géopolitique (Ressources Stratégiques Et Conflits), Environnement (Greentech, Low-tech, Projet Social &amp; Solidaire), Arts (Pictural, Musée...)
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
