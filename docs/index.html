@@ -15,20 +15,25 @@
   }
 
   body {
-    font-family: "Times New Roman", "Liberation Serif", serif;
-    background: #fdf5ea;
-    color: #1a1a1a;
-    font-size: 10pt;
-    line-height: 1.35;
+  font-family: "Times New Roman", "Liberation Serif", serif;
+  background: #e8e0d0;
+  color: #1a1a1a;
+  font-size: 10pt;
+  line-height: 1.35;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 0;
   }
 
  .page {
-  width: 210mm;
+ width: 210mm;
   min-height: 297mm;
-  margin: 0 auto;       /* centre la page dans le navigateur */
   background: #fdf5ea;
   position: relative;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);  /* optionnel, effet "feuille" */
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  flex-shrink: 0;
 }
 
   /* ===== HEADER ===== */
