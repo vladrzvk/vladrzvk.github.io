@@ -22,13 +22,14 @@
     line-height: 1.35;
   }
 
-  .page {
-    width: 210mm;
-    min-height: 297mm;
-    padding: 0;
-    background: #fdf5ea;
-    position: relative;
-  }
+ .page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;       /* centre la page dans le navigateur */
+  background: #fdf5ea;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);  /* optionnel, effet "feuille" */
+}
 
   /* ===== HEADER ===== */
   .header {
@@ -63,7 +64,7 @@
   border: 4px solid #fff;
   z-index: 2;
   object-fit: cover;
-  object-position: center;
+  object-position: center 20%;  /* remonte le cadrage vers le haut pour révéler le visage */
 }
 
   .header-left {
